@@ -1,0 +1,21 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module", // 모듈 시스템 import export
+        "ecmaFeatures": { // JSX문법 사용가능
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true, // 브라우저 환경 리액트는 브라우저에서 돌아감
+        "node": true // 노드를 사용함
+    },
+    "extends": [
+        "eslint:recommended", // ES LINT 추천
+        "plugin:react/recommended" // 리액트 추천
+    ],
+    "plugins": [
+        "import", // 임폴트 익스폴트 eslint
+        "react-hooks" // hooks 지원
+    ]
+}
