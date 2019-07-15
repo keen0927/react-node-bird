@@ -13,6 +13,7 @@ const AppLayout = ({ children }) => {
                 </Menu.Item>
             </Menu>
             <Link href="/signup"><a><Button>회원가입</Button></a></Link>
+            <Link href="/signupRe"><a><Button>회원가입 리</Button></a></Link>
             { children }
         </div>
     )
