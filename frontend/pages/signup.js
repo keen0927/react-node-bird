@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import AppLayout from '../components/AppLayout';
 import Head from 'next/head';
 import { Form, Input, Checkbox, Button } from 'antd';
@@ -13,7 +13,9 @@ const signup = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [termError, setTermError] = useState(false);
 
-    const onSubmit = (e) => {
+    // const useInput = 
+
+    const onSubmit = useCallback((e) => {
         e.preventDefault();
         console.log({
             id,
@@ -30,7 +32,7 @@ const signup = () => {
         if (!term) {
             return setTermError(true)
         }
-    };
+    },[password, passwordCheck, term]);
 
     const onChangeId = (e) => {
         setId(e.target.value);
@@ -44,15 +46,15 @@ const signup = () => {
         setPassword(e.target.value);
     };
 
-    const onChangePasswordCheck = (e) => {
+    const onChangePasswordCheck = useCallback((e) => {
         setPasswordError(e.target.value !== password);
         setPasswordCheck(e.target.value);
-    };
+    },[password]);
 
-    const onChangeTerm = (e) => {
+    const onChangeTerm = useCallback((e) => {
         setTermError(false);
         setTerm(e.target.checked);
-    };
+    },[]);
 
 
     
