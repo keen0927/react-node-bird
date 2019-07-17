@@ -1,6 +1,4 @@
-import React, { useState, useCallback } from 'react';
-import AppLayout from '../components/AppLayout';
-import Head from 'next/head';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
 
 const signup = () => {
@@ -13,7 +11,9 @@ const signup = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [termError, setTermError] = useState(false);
 
-    // const useInput = 
+    useEffect(() => {
+        console.log('렌더링');
+    },[id]);
 
     const onSubmit = useCallback((e) => {
         e.preventDefault();
@@ -61,11 +61,7 @@ const signup = () => {
 
     return (
         <>
-            <Head>
-                <title>Node Bird</title>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.20.1/antd.min.css" />
-            </Head>
-            <AppLayout>
+            
                 <Form onSubmit={onSubmit} style={{ padding: '10px'}}>
                     <div>
                         <label htmlFor="user-id">아이디</label>
@@ -93,7 +89,6 @@ const signup = () => {
                     </div>
                 </Form>
                 <div>회원가입</div>
-            </AppLayout>
         </>
     )
 }
