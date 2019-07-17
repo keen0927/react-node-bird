@@ -7,15 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+    서비스워커용!
     <script>
+        // navigator.serviceWorker.register('/frontend/sw.js')
+        //     .then(reg => console.log('SW registered!',reg))
+        //     .catch(err => console.log("에러로그 : ",err));
+        // setTimeout(() => {
+        //     const img = new Image();
+        //     img.src = 'https://keen0927.github.io/img/keen-logo__none.png';
+        //     document.body.appendChild(img);
+        // }, 0)
+
+        if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/frontend/sw.js')
-            .then(reg => console.log('SW registered!',reg))
-            .catch(err => console.log("에러로그 : ",err));
-        setTimeout(() => {
-            const img = new Image();
-            img.src = 'https://keen0927.github.io/img/keen-logo__none.png';
-            document.body.appendChild(img);
-        }, 3000)
+        .then(function(registration) {
+                console.log('서비스워커 등록~');
+        });
+        navigator.serviceWorker.ready.then(function(registration) {
+            console.log('서비스 워커 준비~');
+        });
+}
     </script>
 </body>
 </html>
