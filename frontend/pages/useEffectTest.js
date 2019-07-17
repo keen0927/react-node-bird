@@ -20,6 +20,7 @@ const useEffectTest = () => {
     },[]);
 
     // #2 특정 값이 업데이트 될때만
+    // 클래스형 컴포넌트라면 컴포넌트디드마운트의 prevProps와 prevState등을 비교해서 작업스
     useEffect(() => {
         console.log(name);
     },[name]);
