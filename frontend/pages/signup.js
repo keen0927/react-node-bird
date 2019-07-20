@@ -11,10 +11,6 @@ const signup = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [termError, setTermError] = useState(false);
 
-    useEffect(() => {
-        console.log('렌더링');
-    },[id]);
-
     const onSubmit = useCallback((e) => {
         e.preventDefault();
         console.log({
