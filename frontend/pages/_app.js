@@ -17,8 +17,8 @@ const NodeBird = ({ Component }) => {
     )
 }
 
-NodeBird.propTypes = {
-    Component: PropTypes.node
-}
+// NodeBird.propTypes = {
+//     Component: PropTypes.node
+// }
 
 export default NodeBird;
