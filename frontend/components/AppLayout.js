@@ -9,7 +9,7 @@ const dummy = {
     Post: [],
     Follweings: [],
     Followers: [],
-    isLoggedIn: true
+    isLoggedIn: false
 }
 
 const AppLayout = ({ children }) => {
