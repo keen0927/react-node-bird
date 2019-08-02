@@ -10,7 +10,8 @@ const dummy = {
             nickname: 'keen',
             
         },
-        content: '첫 번째 게시글'
+        content: '첫 번째 게시글',
+        img: 'https://keen0927.github.io/img/keen-logo__none.png'
     }]
 
 }
@@ -19,7 +20,7 @@ const Home = () => {
 
     return (
         <div>
-            {dummy.isLoggedIn && <Form encType="multipart/form-data">
+            {dummy.isLoggedIn && <Form style={{ marginBottom: 20}} encType="multipart/form-data">
                 <Input.TextArea maxLength={140} placeholder="어떤 신기한 일이 있었나요?"></Input.TextArea>
                 <div>
                     <input type="file" multiple hidden/>
@@ -48,7 +49,7 @@ const Home = () => {
                             <Icon type="retweet" key="retweet" />,
                             <Icon type="heart" key="heart" />,
                             <Icon type="message" key="message" />,
-                            <Icon type="ellipsis" key="ellipsis" />,
+                            <Icon type=" ellipsis" key="ellipsis" />,
                         ]}
                         extra={<Button>팔로우</Button>}
                     >
