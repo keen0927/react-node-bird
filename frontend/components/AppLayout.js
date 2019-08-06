@@ -24,9 +24,7 @@ const AppLayout = ({ children }) => {
             </Menu>
             <Link href="/signup"><a><Button>회원가입</Button></a></Link>
             <Row gutter={10}>
-                <Col xs={24} md={6}>
-
-                    
+                <Col xs={24} md={6}>                     
                     {dummy.isLoggedIn ? <Card 
                         actions={[
                             <div key="twit">트윗 {dummy.Post.length}</div>,
