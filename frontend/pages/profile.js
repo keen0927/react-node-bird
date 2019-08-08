@@ -11,7 +11,7 @@ const profile = () => {
                 grid={{ gutter: 4, xs: 2, md: 3 }}
                 size="small"
                 header={<div>팔로워 목록</div>}
-                loadMore={<Button style={{ width: '100%' }}>더 보기</Button>}
+                loadMore={<div style={{padding: '0 16px 16px'}}><Button style={{ width: '100%' }}>더 보기</Button></div>}
                 bordered
                 dataSource={['킨','하이','노드버드']}
                 renderItem={
@@ -29,7 +29,7 @@ const profile = () => {
              grid={{ gutter: 4, xs: 2, md: 3 }}
              size="small"
              header={<div>팔로잉 목록</div>}
-             loadMore={<Button style={{ width: '100%' }}>더 보기</Button>}
+             loadMore={<div style={{padding: '0 16px 16px'}}><Button style={{ width: '100%' }}>더 보기</Button></div>}
              bordered
              dataSource={['킨','하이','노드버드']}
              renderItem={

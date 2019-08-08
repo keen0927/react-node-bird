@@ -22,8 +22,8 @@ const PostForm = () => {
             <Input.TextArea maxLength={140} placeholder="어떤 신기한 일이 있었나요?"></Input.TextArea>
             <div>
                 <input type="file" multiple hidden/>
-                <Button>이미지 업로드</Button>
-                <Button type="primary" style={{float: 'right'}} htmlType="submit">짹짹</Button>
+                <Button style={{ marginRight: '8px' }}>이미지 업로드</Button>
+                <Button type="primary" htmlType="submit">짹짹</Button>
             </div>
             <div>
                 {dummy.imagePaths.map((v,i) => {

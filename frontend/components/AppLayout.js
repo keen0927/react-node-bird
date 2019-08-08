@@ -30,12 +30,11 @@ const AppLayout = ({ children }) => {
                     <Input.Search enterButton style={{ verticalAlign: 'middle'}}></Input.Search>
                 </Menu.Item>
             </Menu>
-            <Row gutter={10}>
+            <Row gutter={24} style={{ maxWidth: '1024px', margin: '20px auto 0 auto' }}>
                 <Col xs={24} md={6}>
-                    {dummy.isLoggedIn ? 
-                        <UserProfile />
-                    :
-                        <LoginForm />
+                    {dummy.isLoggedIn
+                        ?   <UserProfile />
+                        :   <LoginForm />
                     }
                 </Col>
                 <Col xs={24} md={12}>
@@ -45,7 +44,6 @@ const AppLayout = ({ children }) => {
                     section area
                 </Col>
             </Row>
-            
         </div>
     )
 }
