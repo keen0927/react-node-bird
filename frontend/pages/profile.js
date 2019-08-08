@@ -1,13 +1,11 @@
 import React from 'react';
 import { Form, Input, Button, List, Card, Icon } from 'antd';
+import NicknameEditForm from '../components/NicknameEditForm';
 
 const profile = () => {
     return (
         <div>
-            <Form style={{ marginBottom: '20px', border: '1px solid #d9d9d9', padding: '20px' }}>
-                <Input addonBefore="닉네임" />
-                <Button type="primary">수정</Button>
-            </Form>
+            <NicknameEditForm />
             <List
                 style={{ marginBottom: '20px' }}
                 grid={{ gutter: 4, xs: 2, md: 3 }}
@@ -20,7 +18,7 @@ const profile = () => {
                     item => (
                         <List.Item style={{ marginTop: '20px' }}>
                             <Card actions={[<Icon type="stop" />]}>
-                                <Card.Meta description={item} />
+                                <Card.Meta key="stop" description={item} />
                             </Card>
                         </List.Item>
                     )
@@ -37,7 +35,7 @@ const profile = () => {
              renderItem={
                  item => (
                      <List.Item style={{ marginTop: '20px' }}>
-                         <Card actions={[<Icon type="stop" />]}>
+                         <Card key="stop" actions={[<Icon type="stop" />]}>
                              <Card.Meta description={item} />
                          </Card>
                      </List.Item>

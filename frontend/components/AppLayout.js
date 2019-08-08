@@ -3,14 +3,22 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Menu, Input, Button, Row, Col, Card, Avatar, Form } from 'antd';
 import LoginForm from './LoginForm';
+import UserProfile from './UserProfile';
+
 
 const dummy = {
-    nickname: 'Keen',
-    Post: [],
-    Follweings: [],
-    Followers: [],
-    isLoggedIn: false
+    isLoggedIn: true,
+    imagePaths: [],
+    mainPosts: [{
+        User: {
+            id: 1,
+            nickname: 'keen',
+        },
+        content: '첫 번째 게시글',
+        img: 'https://keen0927.github.io/img/keen-logo__none.png'
+    }]
 }
+
 
 const AppLayout = ({ children }) => {
     return (
@@ -22,19 +30,10 @@ const AppLayout = ({ children }) => {
                     <Input.Search enterButton style={{ verticalAlign: 'middle'}}></Input.Search>
                 </Menu.Item>
             </Menu>
-            <Link href="/signup"><a><Button>회원가입</Button></a></Link>
             <Row gutter={10}>
-                <Col xs={24} md={6}>                     
-                    {dummy.isLoggedIn ? <Card 
-                        actions={[
-                            <div key="twit">트윗 {dummy.Post.length}</div>,
-                            <div key="following">팔로잉 {dummy.Follweings.length}</div>,
-                            <div key="follower">팔로워 {dummy.Followers.length}</div>                         
-                        ]}>                    
-                        <Card.Meta
-                            avatar={<Avatar>{dummy.nickname[0]}</Avatar>}
-                            title={dummy.nickname}/>                    
-                    </Card>
+                <Col xs={24} md={6}>
+                    {dummy.isLoggedIn ? 
+                        <UserProfile />
                     :
                         <LoginForm />
                     }
@@ -42,7 +41,9 @@ const AppLayout = ({ children }) => {
                 <Col xs={24} md={12}>
                     { children }
                 </Col>
-                <Col xs={24} md={6}>3</Col>
+                <Col xs={24} md={6}>
+                    section area
+                </Col>
             </Row>
             
         </div>

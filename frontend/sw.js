@@ -8,7 +8,7 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 '',
                 '/frontend/serviceWorker.html',
-                'https://keen0927.github.io/img/keen-logo__none.png'
+                // 'https://keen0927.github.io/img/keen-logo__none.png'
             ])
                 .then(() => self.skipWaiting());
         })
