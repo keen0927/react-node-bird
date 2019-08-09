@@ -14,7 +14,16 @@ const dummy = {
         },
         content: '첫 번째 게시글',
         img: 'https://keen0927.github.io/img/keen-logo__none.png'
-    }]
+    },
+    {
+        User: {
+            id: 1,
+            nickname: 'keen',
+        },
+        content: '첫 번째 게시글',
+        img: 'https://keen0927.github.io/img/keen-logo__none.png'
+    }
+    ]
 }
 
 
@@ -23,11 +32,7 @@ const Home = () => {
     return (
         <div>
             {dummy.isLoggedIn && <PostForm />}
-            {dummy.mainPosts.map(c => {
-                return (
-                    <PostCard key={c} post={c} />
-                )
-            })}
+            {dummy.mainPosts.map(c => <PostCard key={c} post={c} />)}
         </div>
     );
 };
