@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Card, Avatar, Icon } from 'antd';
-
 import PostForm from '../components/PostForm';
 import PostCard from '../components/PostCard';
+import { useDispatch } from 'react-redux';
+import { LOG_IN } from '../reducers/user';
 
 const dummy = {
     isLoggedIn: true,
@@ -28,6 +28,18 @@ const dummy = {
 
 
 const Home = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({
+            type: LOG_IN,
+            data: {
+                nickname: 'keen'
+            }
+        })
+    },[])
+
 
     return (
         <div>

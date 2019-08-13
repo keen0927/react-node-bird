@@ -1,16 +1,16 @@
-const LOG_IN = 'LOG_IN'; // 액션 이름
-const LOG_OUT = 'LOG_OUT';
+export const LOG_IN = 'LOG_IN'; // 액션 이름
+export const LOG_OUT = 'LOG_OUT';
 
-const loginAction = {
-    type: LOG_IN,
-    data: {
-        nickname: 'keen'
-    }
-}
+// const loginAction = {
+//     type: LOG_IN,
+//     data: {
+//         nickname: 'keen'
+//     }
+// }
 
-const logoutAction = {
-    type: LOG_OUT,
-}
+// const logoutAction = {
+//     type: LOG_OUT,
+// }
 
 const initialState = {
     isLoggedIn: false,
@@ -30,10 +30,13 @@ export default (state = initialState, action) => { // 어떻게 다음 스테이
             return {
                 ...state,
                 isLoggedIn: false,
-                user: {}
+                user: null
             }
         }
-        default:
-            return ;
+        default: {
+            return {
+                ...state
+            }
+        }
     }
 };
