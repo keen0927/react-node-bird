@@ -1,16 +1,16 @@
 export const LOG_IN = 'LOG_IN'; // 액션 이름
 export const LOG_OUT = 'LOG_OUT';
 
-// const loginAction = {
-//     type: LOG_IN,
-//     data: {
-//         nickname: 'keen'
-//     }
-// }
+export const loginAction = {
+    type: LOG_IN,
+    data: {
+        nickname: 'keenz'
+    }
+}
 
-// const logoutAction = {
-//     type: LOG_OUT,
-// }
+export const logoutAction = {
+    type: LOG_OUT,
+}
 
 const initialState = {
     isLoggedIn: false,
