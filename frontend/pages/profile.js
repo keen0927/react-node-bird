@@ -23,25 +23,25 @@ const profile = () => {
                         </List.Item>
                     )
                 }
-             />
-             <List
-             style={{ marginBottom: '20px' }}
-             grid={{ gutter: 4, xs: 2, md: 3 }}
-             size="small"
-             header={<div>팔로잉 목록</div>}
-             loadMore={<div style={{padding: '0 16px 16px'}}><Button style={{ width: '100%' }}>더 보기</Button></div>}
-             bordered
-             dataSource={['킨','하이','노드버드']}
-             renderItem={
-                 item => (
-                     <List.Item style={{ marginTop: '20px' }}>
-                         <Card key="stop" actions={[<Icon type="stop" />]}>
-                             <Card.Meta description={item} />
-                         </Card>
-                     </List.Item>
-                 )
-             }
-          />
+            />
+            <List
+            style={{ marginBottom: '20px' }}
+            grid={{ gutter: 4, xs: 2, md: 3 }}
+            size="small"
+            header={<div>팔로잉 목록</div>}
+            loadMore={<div style={{padding: '0 16px 16px'}}><Button style={{ width: '100%' }}>더 보기</Button></div>}
+            bordered
+            dataSource={['킨','하이','노드버드']}
+            renderItem={
+                item => (
+                    <List.Item style={{ marginTop: '20px' }}>
+                        <Card key="stop" actions={[<Icon type="stop" />]}>
+                            <Card.Meta description={item} />
+                        </Card>
+                    </List.Item>
+                )
+            }
+        />
         </div>
     )
 }

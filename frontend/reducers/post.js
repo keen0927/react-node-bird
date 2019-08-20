@@ -1,5 +1,12 @@
 const initialState = {
-    mainPosts: [],
+    mainPosts: [{
+        User: {
+            id: 1,
+            nickname: 'keen',
+        },
+        content: '첫 번째 게시글',
+        img: 'https://keen0927.github.io/img/keen-logo__none.png'
+    }],
 }
 
 export const ADD_POST = "/post/ADD_POST";

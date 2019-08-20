@@ -2,25 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Menu, Input, Button, Row, Col, Card, Avatar, Form } from 'antd';
+import { useSelector } from 'react-redux';
 import LoginForm from './LoginForm';
 import UserProfile from './UserProfile';
 
-
-const dummy = {
-    isLoggedIn: true,
-    imagePaths: [],
-    mainPosts: [{
-        User: {
-            id: 1,
-            nickname: 'keen',
-        },
-        content: '첫 번째 게시글',
-        img: 'https://keen0927.github.io/img/keen-logo__none.png'
-    }]
-}
-
-
 const AppLayout = ({ children }) => {
+
+    const { isLoggedIn } = useSelector(state => state.user);
+
+    console.log(isLoggedIn);
+
     return (
         <div>
             <Menu mode="horizontal">
@@ -32,16 +23,13 @@ const AppLayout = ({ children }) => {
             </Menu>
             <Row gutter={24} style={{ maxWidth: '1024px', margin: '20px auto 0 auto' }}>
                 <Col xs={24} md={6}>
-                    {dummy.isLoggedIn
-                        ?   <UserProfile />
-                        :   <LoginForm />
-                    }
+                    {isLoggedIn ? <UserProfile /> : <LoginForm />}
                 </Col>
                 <Col xs={24} md={12}>
                     { children }
                 </Col>
                 <Col xs={24} md={6}>
-                    section area
+                    section area22
                 </Col>
             </Row>
         </div>

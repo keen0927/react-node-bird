@@ -13,8 +13,13 @@ export const logoutAction = {
 }
 
 const initialState = {
-    isLoggedIn: false,
-    user: {},
+    isLoggedIn: true,
+    user: {
+        nickname: 'keen',
+        post: [],
+        Following: [],
+        Followers: []
+    },
 };
 
 export default (state = initialState, action) => { // 어떻게 다음 스테이트가 되는지
