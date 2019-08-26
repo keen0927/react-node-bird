@@ -1,26 +1,25 @@
 export const LOG_IN = 'LOG_IN'; // 액션 이름
 export const LOG_OUT = 'LOG_OUT';
 
+
+const dummyUser = {
+    nickname: 'keen',
+    Post: [],
+    Following: [],
+    Followers: []
+}
+const initialState = {
+    isLoggedIn: false,
+    user: null,
+};
+
 export const loginAction = {
-    type: LOG_IN,
-    data: {
-        nickname: 'keenz'
-    }
+    type: LOG_IN
 }
 
 export const logoutAction = {
     type: LOG_OUT,
 }
-
-const initialState = {
-    isLoggedIn: true,
-    user: {
-        nickname: 'keen',
-        post: [],
-        Following: [],
-        Followers: []
-    },
-};
 
 export default (state = initialState, action) => { // 어떻게 다음 스테이트가 되는지
     switch(action.type) {
@@ -28,7 +27,7 @@ export default (state = initialState, action) => { // 어떻게 다음 스테이
             return {
                 ...state,
                 isLoggedIn: true,
-                user: action.data
+                user: dummyUser,
             }
         }
         case LOG_OUT: {
