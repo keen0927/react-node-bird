@@ -20,7 +20,7 @@ const NodeBird = ({ Component, store }) => {
     )
 }
 
-export default withRedux((initialState, options) => {
+const configureStore = (initialState, options) => {
     const middlewares = [];
     const enhancer = compose(
         applyMiddleware(...middlewares),
@@ -28,4 +28,6 @@ export default withRedux((initialState, options) => {
     );
     const store = createStore(reducer, initialState, enhancer);
     return store;
-})(NodeBird);
+};
+
+export default withRedux(configureStore)(NodeBird);
