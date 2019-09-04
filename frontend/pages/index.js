@@ -7,6 +7,14 @@ const Home = () => {
 
     const { isLoggedIn } = useSelector(state => state.user);
     const { mainPosts } = useSelector(state => state.post);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({
+            type: 'LOG_IN',
+        });
+
+    },[])
 
     return (
         <div>

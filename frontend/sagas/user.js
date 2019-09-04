@@ -22,18 +22,17 @@ function* login() {
 }
 
 function* watchLogin() {
-    yield takeLatest(LOG_IN, login)
-}
-
-function* helloSaga() { 
-    console.log('hello saga1');
-    yield take(HELLO_SAGA);
-    console.log('hello saga');
+    yield take(LOG_IN);
+    console.log('LOGIN_SUCCESS');
+    put({
+        type: LOG_IN_SUCCESS
+    });
 }
 
 export default function* userSaga() {
-    yield all([
-        fork(watchLogin),
-        helloSaga()
-    ]);
+    yield all[
+        // watchHello(),
+        watchLogin()
+        // watchSighUp()
+    ]
 }
