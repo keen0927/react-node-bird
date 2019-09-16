@@ -10,8 +10,6 @@ const AppLayout = ({ children }) => {
 
     const { isLoggedIn } = useSelector(state => state.user);
 
-    console.log(isLoggedIn);
-
     return (
         <div>
             <Menu mode="horizontal">

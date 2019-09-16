@@ -9,12 +9,12 @@ const Home = () => {
     const { mainPosts } = useSelector(state => state.post);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch({
-            type: 'LOG_IN',
-        });
+    // useEffect(() => {
+    //     dispatch({
+    //         type: 'LOG_IN',
+    //     });
 
-    },[])
+    // },[])
 
     return (
         <div>
