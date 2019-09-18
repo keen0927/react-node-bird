@@ -2,7 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Input, Checkbox, Button } from 'antd';
-import { signUpAction } from '../reducers/user';
+import { SIGN_UP_REQUEST } from '../reducers/user';
+// import { signUpAction } from '../reducers/user';
 
 const TextInput = ({value}) => {
     return (
@@ -52,12 +53,17 @@ const signup = () => {
         if (!term) {
             return setTermError(true)
         }
-        
-        dispatch(signUpAction({
-            id,
-            password,
-            nickname
-        }));
+        dispatch({
+            type: SIGN_UP_REQUEST,
+            data: {
+                id, password, nick
+            }
+        })
+        // dispatch(signUpAction({
+        //     id,
+        //     password,
+        //     nickname
+        // }));
     },[password, passwordCheck, term]);
 
     const onChangeId = (e) => {

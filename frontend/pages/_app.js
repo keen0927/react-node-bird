@@ -5,8 +5,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import AppLayout from '../components/AppLayout';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
-import sagaMiddleware from '../sagas/middleware';
 import rootSaga from '../sagas';
+import createSagaMiddleware from '@redux-saga/core';
 
 const NodeBird = ({ Component, store }) => {
     return (
@@ -23,6 +23,7 @@ const NodeBird = ({ Component, store }) => {
 }
 
 const configureStore = (initialState, options) => {
+    const sagaMiddleware = createSagaMiddleware();
     const middlewares = [sagaMiddleware];
     const enhancer = process.env.NODE_ENV === 'production'
         ? compose(applyMiddleware(...middlewares))
