@@ -29,14 +29,17 @@ function signUpAPI() {
 }
 function* signUp() {
     try {
-        yield call(signUpAPI);
+        // yield call(signUpAPI);
+        // throw new Error('에러요');
+        yield delay(2000);
         yield put({
             type: SIGN_UP_SUCCESS,
         });
     } catch (e) {
         console.error(e);
         yield put({
-            type: SIGN_UP_FAILURE
+            type: SIGN_UP_FAILURE,
+            error: e
         })
     }
 }

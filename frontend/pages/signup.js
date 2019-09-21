@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Input, Checkbox, Button } from 'antd';
 import { SIGN_UP_REQUEST } from '../reducers/user';
@@ -36,6 +36,8 @@ const signup = () => {
 
     const dispatch = useDispatch();
 
+    const { isSigningUp } = useSelector(state => state.user);
+
     const onSubmit = useCallback((e) => {
         e.preventDefault();
         console.log({
@@ -56,9 +58,10 @@ const signup = () => {
         dispatch({
             type: SIGN_UP_REQUEST,
             data: {
-                id, password, nick
+                id, password, nickname
             }
-        })
+        });
+        console.log('isSigningUp :',isSigningUp);
         // dispatch(signUpAction({
         //     id,
         //     password,
@@ -118,7 +121,7 @@ const signup = () => {
                         {termError && <div style={{ color: 'red'}}>동의하기 후 회원 가입이 가능합니다.</div>}
                     </div>
                     <div>
-                        <Button type="primary" htmlType="submit">가입하기</Button>
+                        <Button type="primary" htmlType="submit" loading={isSigningUp}>가입하기</Button>
                     </div>
                 </Form>
                 <div>회원가입</div>
