@@ -1,12 +1,35 @@
 const express = require('express');
+const db = require('../models');
 const router = express.Router();
 
 router.get('/', (req,res) => {
 
 });
 
-router.post('/', (req,res) => {
+router.post('/', async (req,res, next) => {
+  try {
+    const exUser = await db.User.findOne({
+      where: {
+        userId: req.body.userId,
+      }
+    });
+    if (exUser) {
+      return res.status(403).send('이미 사용중인 아이디 입니다.')
+    }
 
+    const hashedPassword = await bcrypt.hash(req.body.password, 12); // 숫자가 커지면 해킹위험이 낮아지지면 그만큼 성능이 낮아짐 보통 10-12 사용
+    const newUser = await db.User.create({
+      nickname: req.body.nickname,
+      userId: req.body.userId,
+      password: hashedPassword,
+    });
+    console.log(newUser);
+    return res.status(200).json(newUser);
+  } catch (e) {
+    console.error(e);
+    // return res.status(403).send(e);
+    return next(e);
+  }
 });
 
 router.get('/:id', (req,res) => {
