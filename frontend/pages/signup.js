@@ -38,15 +38,9 @@ const signup = () => {
 
     const { isSigningUp } = useSelector(state => state.user);
 
+    // useCallback 안에서 사용되는 state들은 []에 꼭 추가하자
     const onSubmit = useCallback((e) => {
         e.preventDefault();
-        console.log({
-            id,
-            nickname,
-            password,
-            passwordCheck,
-            term
-        });
 
         if (password !== passwordCheck) {
             return setPasswordError(true);
@@ -55,19 +49,15 @@ const signup = () => {
         if (!term) {
             return setTermError(true)
         }
-        dispatch({
+        return dispatch({
             type: SIGN_UP_REQUEST,
             data: {
-                id, password, nickname
+                userId: id,
+                password: password,
+                nickname: nickname
             }
         });
-        console.log('isSigningUp :',isSigningUp);
-        // dispatch(signUpAction({
-        //     id,
-        //     password,
-        //     nickname
-        // }));
-    },[password, passwordCheck, term]);
+    },[id, nickname, password, passwordCheck, term]);
 
     const onChangeId = (e) => {
         setId(e.target.value);
@@ -77,7 +67,7 @@ const signup = () => {
         setNickname(e.target.value);
     };
 
-    const onChangePassword = (e) => {       
+    const onChangePassword = (e) => {
         setPassword(e.target.value);
     };
 
@@ -92,11 +82,11 @@ const signup = () => {
     },[]);
 
 
-    
+
 
     return (
         <>
-            
+
                 <Form onSubmit={onSubmit} style={{ padding: '10px'}}>
                     <TextInput value={"135"} />
                     <div>
@@ -105,15 +95,15 @@ const signup = () => {
                     </div>
                     <div>
                         <label htmlFor="user-nick">닉네임</label>
-                        <Input name="user-nick" value={nickname} required onChange={onChangeNick} />                    
+                        <Input name="user-nick" value={nickname} required onChange={onChangeNick} />
                     </div>
                     <div>
                         <label htmlFor="user-password">비밀번호</label>
-                        <Input name="user-password" type="password" value={password} required onChange={onChangePassword} />                                          
+                        <Input name="user-password" type="password" value={password} required onChange={onChangePassword} />
                     </div>
                     <div>
                         <label htmlFor="user-password-check">비밀번호확인</label>
-                        <Input name="user-password-check" type="password" value={passwordCheck} required onChange={onChangePasswordCheck} />                                                             
+                        <Input name="user-password-check" type="password" value={passwordCheck} required onChange={onChangePasswordCheck} />
                         {passwordError && <div style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</div>}
                     </div>
                     <div>
