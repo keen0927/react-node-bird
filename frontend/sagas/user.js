@@ -2,14 +2,13 @@ import { all, fork, take, takeLatest, takeEvery, call, put, delay } from 'redux-
 import { LOG_IN_REQUEST , LOG_IN_SUCCESS, LOG_IN_FAILURE, SIGN_UP_REQUEST, SIGN_UP_SUCCESS, SIGN_UP_FAILURE } from '../reducers/user';
 import axios from 'axios';
 
-function loginAPI() {
-    // 서버에 요청을 보내는 부분
-  // return axios.post('http:localhost:3065/api/user')
+function loginAPI(loginData) {
+  return axios.post('/login', loginData);
 }
 
 function* login(action) {
     try {
-        // yield call(signUpAPI, action.data);
+        yield call(loginAPI, action.data);
         yield delay(2000);
         yield put({ // dispatch와 동일
             type: LOG_IN_SUCCESS

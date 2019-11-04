@@ -8,12 +8,14 @@ const expressSession = require('express-session');
 const dotenv = require('dotenv');
 const passport = require('passport');
 
+const passportConfig = require('./passport');
 const userAPIRouter = require('./routes/user');
 const postAPIRouter = require('./routes/post');
 const postsAPIRouter  = require('./routes/posts');
 
 dotenv.config();
 db.sequelize.sync();
+passportConfig();
 
 app.use(morgan('dev'));
 app.use(express.json());
