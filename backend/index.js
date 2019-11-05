@@ -25,7 +25,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(expressSession({
   resave: false,
   saveUninitialized: false,
-  dotenv: process.ev.COOKIE_SECRET,
+  dotenv: process.env.COOKIE_SECRET,
   cookie: {
     httpOnly: true, // 자바스크립트로 쿠키게 접근 못함
     secure: false, // https를 쓸때 true로
